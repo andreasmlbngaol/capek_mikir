@@ -2,7 +2,6 @@ import 'package:capek_mikir/config/router.dart';
 import 'package:capek_mikir/provider/app_state_provider.dart';
 import 'package:capek_mikir/provider/user_state_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -29,21 +28,14 @@ class MyApp extends StatelessWidget {
         child: MaterialApp.router(
           title: "Capek Mikir",
           theme: ThemeData(
-              textTheme: GoogleFonts
-                  .comicNeueTextTheme()
-                  .apply(
-                bodyColor: Theme.of(context).colorScheme.onSurface,
-                displayColor: Theme.of(context).colorScheme.tertiary,
-              ),
+              fontFamily: "Comic",
               colorScheme: ColorScheme.fromSeed(
                   seedColor: Color(0xFF01197E),
                   brightness: Brightness.light
               )
           ),
           darkTheme: ThemeData(
-              fontFamily: GoogleFonts
-                  .roboto()
-                  .fontFamily,
+              fontFamily: "Comic",
               colorScheme: ColorScheme.fromSeed(
                   seedColor: Color(0xFF01197E),
                   brightness: Brightness.dark

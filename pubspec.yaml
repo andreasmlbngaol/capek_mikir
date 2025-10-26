@@ -20,3 +20,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  fonts:
+    - family: Comic
+      fonts:
+        - asset: assets/fonts/ComicNeue-Regular.ttf
+        - asset: assets/fonts/ComicNeue-Light.ttf
+          weight: 300
+        - asset: assets/fonts/ComicNeue-Bold.ttf
+          weight: 700

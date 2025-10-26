@@ -82,66 +82,86 @@ class _QuizContent extends StatelessWidget {
                 flex: 3,
                 child: Padding(
                   padding: const EdgeInsets.all(AppTheme.spacingLg),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // <CHANGE> Improved question styling
-                      Text(
-                        question.problem,
-                        style:
-                        Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.w600,
-                          height: 1.4,
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      return SingleChildScrollView(
+                        physics: const AlwaysScrollableScrollPhysics(),
+                        child: ConstrainedBox(
+                          constraints: BoxConstraints(
+                            minHeight: constraints.maxHeight,
+                          ),
+                          child: IntrinsicHeight(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                // ✅ Soal
+                                Text(
+                                  question.problem,
+                                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    height: 1.4,
+                                  ),
+                                ),
+                                const SizedBox(height: AppTheme.spacingXl),
+
+                                // ✅ Pilihan jawaban
+                                ..._buildChoices(context, quiz, question),
+                                const Spacer(),
+
+                                // ✅ Tombol navigasi
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: OutlinedButton.icon(
+                                        style: AppTheme.outlinedButtonStyle,
+                                        onPressed:
+                                        quiz.isFirst ? null : quiz.previousQuestion,
+                                        icon: const Icon(Icons.arrow_back),
+                                        label: const Text("Previous"),
+                                      ),
+                                    ),
+                                    const SizedBox(width: AppTheme.spacingMd),
+                                    Expanded(
+                                      child: FilledButton.icon(
+                                        style: AppTheme.filledButtonStyle,
+                                        onPressed: quiz.isLast
+                                            ? () {
+                                          quiz.calculateScore();
+                                          context.go(AppRoutes.score);
+                                        }
+                                            : quiz.nextQuestion,
+                                        label: Text(quiz.isLast ? "Selesai" : "Next"),
+                                        icon: const Icon(Icons.arrow_forward),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: AppTheme.spacingXl),
-                      ..._buildChoices(context, quiz, question),
-                      const Spacer(),
-                      // <CHANGE> Improved button layout
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: OutlinedButton.icon(
-                              style: AppTheme.outlinedButtonStyle,
-                              onPressed:
-                              quiz.isFirst ? null : quiz.previousQuestion,
-                              icon: const Icon(Icons.arrow_back),
-                              label: const Text("Previous"),
-                            ),
-                          ),
-                          const SizedBox(width: AppTheme.spacingMd),
-                          Expanded(
-                            child: FilledButton.icon(
-                              style: AppTheme.filledButtonStyle,
-                              onPressed: quiz.isLast
-                                  ? () {
-                                quiz.calculateScore();
-                                context.go(AppRoutes.score);
-                              }
-                                  : quiz.nextQuestion,
-                              label: Text(quiz.isLast ? "Selesai" : "Next"),
-                              icon: const Icon(Icons.arrow_forward),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                      );
+                    },
                   ),
                 ),
               ),
+
+              // ✅ Sidebar hanya tampil di layar lebar
               if (isWide)
-                Container(
-                  width: 250,
-                  padding: const EdgeInsets.all(AppTheme.spacingLg),
-                  decoration: BoxDecoration(
-                    border: Border(
-                      left: BorderSide(
-                        color: Theme.of(context).colorScheme.outline,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  child: Container(
+                    padding: const EdgeInsets.all(AppTheme.spacingLg),
+                    decoration: BoxDecoration(
+                      border: Border(
+                        left: BorderSide(
+                          color: Theme.of(context).colorScheme.outline,
+                        ),
                       ),
                     ),
+                    child: _buildQuestionSidebar(context, quiz),
                   ),
-                  child: _buildQuestionSidebar(context, quiz),
                 ),
             ],
           ),

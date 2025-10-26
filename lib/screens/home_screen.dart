@@ -34,13 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 // <CHANGE> Added header text
                 Text(
-                  'Mulai Quiz',
+                  'Capek Mikir',
                   style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
-                  'Isi data diri dan pilih kategori untuk memulai',
+                  'Isi dulu data diri terus pilih kategori untuk mulai',
                   style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     color: Theme.of(context).colorScheme.onSurfaceVariant,
                   ),
