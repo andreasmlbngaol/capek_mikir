@@ -1,4 +1,5 @@
 import 'package:capek_mikir/config/router.dart';
+import 'package:capek_mikir/config/app_theme.dart';
 import 'package:capek_mikir/models/categories.dart';
 import 'package:capek_mikir/provider/user_state_provider.dart';
 import 'package:capek_mikir/widgets/outlined_text_field.dart';
@@ -20,76 +21,108 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme
-            .of(context)
-            .colorScheme
-            .primaryContainer,
-        title: const Text('Home'),
-      ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 32),
+        padding: const EdgeInsets.symmetric(
+          horizontal: AppTheme.spacingXxl,
+          vertical: AppTheme.spacingXl,
+        ),
         child: Center(
-          child: Column(
-            spacing: 16,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Nama
-              OutlinedTextField(
-                  controller: _nameController,
-                  labelText: "Nama",
-                  hintText: "Siapa namanya?"
-              ),
-
-              // Dropdown kategori
-              DropdownButtonFormField<Categories>(
-                decoration: const InputDecoration(
-                  labelText: "Kategori",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(16)),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              spacing: AppTheme.spacingXl,
+              children: [
+                // <CHANGE> Added header text
+                Text(
+                  'Mulai Quiz',
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-                initialValue: _selectedCategory,
-                items: Categories.values.map((category) {
-                  return DropdownMenuItem(
-                    value: category,
-                    child: Text(category.displayName),
-                  );
-                }).toList(),
-                onChanged: (category) {
-                  debugPrint("Selected category: $category");
-                  setState(() {
-                    _selectedCategory = category;
-                  });
-                },
-              ),
-
-              // Tombol submit
-              SizedBox(
-                width: double.infinity,
-                child: FilledButton(
-                  onPressed: () {
-                    if (_nameController.text.isEmpty ||
-                        _selectedCategory == null) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text("Isi dulu semuanya ya 😤"),
-                        ),
-                      );
-                      return;
-                    }
-
-                    final userProvider = context.read<UserStateProvider>();
-                    userProvider.setUserData(_nameController.text, _selectedCategory!);
-                    context.push(AppRoutes.quiz);
-                  },
-                  child: const Text("Gaskan"),
+                Text(
+                  'Isi data diri dan pilih kategori untuk memulai',
+                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-              ),
-            ],
+                const SizedBox(height: AppTheme.spacingMd),
+
+                // Nama Input
+                OutlinedTextField(
+                  controller: _nameController,
+                  labelText: "Nama",
+                  hintText: "Siapa namanya?",
+                ),
+
+                // Kategori Dropdown
+                DropdownButtonFormField<Categories>(
+                  decoration: AppTheme.buildInputDecoration(
+                    labelText: "Kategori",
+                    context: context,
+                  ),
+                  initialValue: _selectedCategory,
+                  items: Categories.values.map((category) {
+                    return DropdownMenuItem(
+                      value: category,
+                      child: Text(category.displayName),
+                    );
+                  }).toList(),
+                  onChanged: (category) {
+                    setState(() {
+                      _selectedCategory = category;
+                    });
+                  },
+                ),
+
+                const SizedBox(height: AppTheme.spacingLg),
+
+                // Submit Button
+                SizedBox(
+                  width: double.infinity,
+                  child: FilledButton(
+                    style: AppTheme.filledButtonStyle,
+                    onPressed: () {
+                      if (_nameController.text.isEmpty ||
+                          _selectedCategory == null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Isi dulu semuanya ya 😤"),
+                            behavior: SnackBarBehavior.floating,
+                          ),
+                        );
+                        return;
+                      }
+
+                      final userProvider = context.read<UserStateProvider>();
+                      userProvider.setUserData(
+                        _nameController.text,
+                        _selectedCategory!,
+                      );
+                      context.go(AppRoutes.quiz);
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: AppTheme.spacingMd,
+                      ),
+                      child: Text(
+                        "Gaskan",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    super.dispose();
   }
 }
