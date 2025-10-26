@@ -13,6 +13,5 @@ class AppStateProvider extends ChangeNotifier {
 
   void _loadAndRandomizeQuestion() {
     _questions.clear();
-
   }
 }
