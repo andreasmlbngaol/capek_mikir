@@ -43,7 +43,7 @@ Aplikasi kuis sederhana yang dibuat dengan Flutter.
 
 ### Video Demo
 
-[Lihat Video Demo Aplikasi](docs/demo.mp4)
+[Lihat Video Demo Aplikasi](docs/demo.webm)
 
 *(Catatan: Klik link di atas untuk melihat video demo. Pastikan file `demo.mp4` ada di dalam folder `docs`)*
 
