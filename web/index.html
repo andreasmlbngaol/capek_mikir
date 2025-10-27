@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -31,8 +31,38 @@
 
   <title>capek_mikir</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {
+      background-color: #f5f5f5; /* A light grey background */
+    }
+    .loader-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+    }
+    .loader {
+      border: 8px solid #E0E0E0; /* Light grey circle */
+      border-top: 8px solid #01197E; /* Your app's primary color */
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
+  <!-- Loading Spinner -->
+  <div class="loader-container">
+    <div class="loader"></div>
+  </div>
+  
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
