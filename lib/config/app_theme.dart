@@ -30,7 +30,6 @@ class AppTheme {
   static const EdgeInsets cardPadding = EdgeInsets.all(spacingLg);
   static const EdgeInsets cardPaddingLarge = EdgeInsets.all(spacingXl);
 
-  // Input Decoration
   static InputDecoration buildInputDecoration({
     required String labelText,
     String? hintText,
@@ -45,20 +44,23 @@ class AppTheme {
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(radiusLg),
         borderSide: BorderSide(
-          color: Theme.of(context).colorScheme.outline,
+          color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.5),
+          width: 1.5,
         ),
       ),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(radiusLg),
         borderSide: BorderSide(
           color: Theme.of(context).colorScheme.primary,
-          width: 2,
+          width: 2.5,
         ),
       ),
       contentPadding: const EdgeInsets.symmetric(
         horizontal: spacingMd,
         vertical: spacingMd,
       ),
+      filled: true,
+      fillColor: Theme.of(context).colorScheme.surfaceContainerLow,
     );
   }
 
@@ -76,6 +78,7 @@ class AppTheme {
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(radiusMd),
     ),
+    elevation: elevationMd,
   );
 
   static ButtonStyle get outlinedButtonStyle => OutlinedButton.styleFrom(
@@ -83,5 +86,23 @@ class AppTheme {
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(radiusMd),
     ),
+  );
+
+  static LinearGradient get primaryGradient => LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Colors.blue.withValues(alpha: 0.05),
+      Colors.purple.withValues(alpha: 0.03),
+    ],
+  );
+
+  static LinearGradient get accentGradient => LinearGradient(
+    begin: Alignment.topRight,
+    end: Alignment.bottomLeft,
+    colors: [
+      Colors.cyan.withValues(alpha: 0.08),
+      Colors.blue.withValues(alpha: 0.04),
+    ],
   );
 }

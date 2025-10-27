@@ -2,7 +2,8 @@ enum Categories {
   programming,
   game,
   history,
-  language
+  language,
+  twice
 }
 
 extension CategoriesExt on Categories {
@@ -28,6 +29,8 @@ extension CategoriesExt on Categories {
         return "Sejarah";
       case Categories.language:
         return "Bahasa";
+      case Categories.twice:
+        return "Twice";
       }
   }
 }

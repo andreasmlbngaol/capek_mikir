@@ -108,6 +108,30 @@ class QuestionList {
         solution: "flutter create",
         explanation: "Command 'flutter create' digunakan untuk membuat project Flutter baru.",
       ),
+      // Tambahan
+      const Question(
+        problem: "Widget apa yang digunakan untuk layout vertikal di Flutter?",
+        choices: ["Column", "Row", "Stack", "ListView"],
+        solution: "Column",
+        explanation: "Column digunakan untuk menyusun widget secara vertikal.",
+      ),
+      const Question(
+        problem: "Kotlin berjalan di atas platform apa?",
+        choices: ["JVM", "CLR", "WebAssembly", "Python VM"],
+        solution: "JVM",
+        explanation: "Kotlin berjalan di atas Java Virtual Machine (JVM) sama seperti Java.",
+      ),
+      const Question(
+        problem: "Apa fungsi 'setState()' di Flutter?",
+        choices: [
+          "Menyimpan data ke database",
+          "Mengubah tampilan saat state berubah",
+          "Menjalankan ulang aplikasi",
+          "Menambahkan widget baru",
+        ],
+        solution: "Mengubah tampilan saat state berubah",
+        explanation: "setState() memberi tahu Flutter bahwa data berubah dan UI harus di-rebuild.",
+      ),
     ],
 
     // ==========================================================
@@ -189,6 +213,30 @@ class QuestionList {
         choices: ["HoYoverse", "Tencent", "miHoYo", "Bandai Namco"],
         solution: "HoYoverse",
         explanation: "HoYoverse adalah nama global baru dari studio miHoYo.",
+      ),
+      // Tambahan
+      const Question(
+        problem: "Game MOBA populer yang dikembangkan oleh Riot Games adalah?",
+        choices: ["Dota 2", "Valorant", "League of Legends", "Overwatch"],
+        solution: "League of Legends",
+        explanation: "League of Legends adalah game MOBA buatan Riot Games.",
+      ),
+      const Question(
+        problem: "Di game Mobile Legends, role 'Tank' berfungsi untuk?",
+        choices: [
+          "Memberi damage besar",
+          "Menahan serangan musuh",
+          "Heal tim",
+          "Menyerang dari jarak jauh",
+        ],
+        solution: "Menahan serangan musuh",
+        explanation: "Tank berfungsi sebagai pelindung tim dengan HP dan defense besar.",
+      ),
+      const Question(
+        problem: "Karakter utama di game The Witcher bernama?",
+        choices: ["Geralt of Rivia", "Ezio Auditore", "Arthur Morgan", "Ellie"],
+        solution: "Geralt of Rivia",
+        explanation: "Geralt adalah pemburu monster dalam seri The Witcher.",
       ),
     ],
 
@@ -272,6 +320,25 @@ class QuestionList {
         solution: "Mataram Kuno",
         explanation: "Borobudur dibangun pada masa Dinasti Syailendra di Kerajaan Mataram Kuno.",
       ),
+      // Tambahan
+      const Question(
+        problem: "Siapa penemu telepon?",
+        choices: ["Alexander Graham Bell", "Nikola Tesla", "Thomas Edison", "Marconi"],
+        solution: "Alexander Graham Bell",
+        explanation: "Bell menemukan telepon pada tahun 1876.",
+      ),
+      const Question(
+        problem: "Kerajaan Sriwijaya berasal dari pulau?",
+        choices: ["Sumatra", "Jawa", "Bali", "Sulawesi"],
+        solution: "Sumatra",
+        explanation: "Kerajaan Sriwijaya berpusat di Palembang, Sumatra Selatan.",
+      ),
+      const Question(
+        problem: "Siapa penulis naskah proklamasi Indonesia?",
+        choices: ["Soekarno", "Hatta", "Sayuti Melik", "Ahmad Subardjo"],
+        solution: "Soekarno",
+        explanation: "Naskah proklamasi ditulis tangan oleh Soekarno.",
+      ),
     ],
 
     // ==========================================================
@@ -353,6 +420,119 @@ class QuestionList {
         choices: ["Apple", "Google", "Microsoft", "Adobe"],
         solution: "Apple",
         explanation: "Swift dibuat oleh Apple untuk menggantikan Objective-C di iOS dan macOS.",
+      ),
+      // Tambahan
+      const Question(
+        problem: "Apa arti kata ‘OOTD’?",
+        choices: ["Outfit of the Day", "Out of the Door", "Out of the Deal", "Order of the Day"],
+        solution: "Outfit of the Day",
+        explanation: "OOTD adalah singkatan dari Outfit of the Day, biasanya buat pamer baju di medsos.",
+      ),
+      const Question(
+        problem: "Kata ‘ghosting’ dalam hubungan berarti?",
+        choices: ["Menghilang tiba-tiba tanpa kabar", "Menjadi teman dekat", "Curhat terus", "Menikah diam-diam"],
+        solution: "Menghilang tiba-tiba tanpa kabar",
+        explanation: "Ghosting berarti seseorang tiba-tiba menghilang tanpa penjelasan dalam hubungan.",
+      ),
+      const Question(
+        problem: "Apa arti singkatan ‘TBH’?",
+        choices: ["To Be Honest", "Too Bad Honey", "Try Being Happy", "Thanks By Heart"],
+        solution: "To Be Honest",
+        explanation: "TBH berarti ‘sejujurnya’.",
+      ),
+    ],
+
+    // ==========================================================
+    Categories.twice: [
+      const Question(
+        problem: "Berapa jumlah member TWICE?",
+        choices: ["7", "8", "9", "10"],
+        solution: "9",
+        explanation: "TWICE terdiri dari 9 member.",
+      ),
+      const Question(
+        problem: "Siapa leader dari TWICE?",
+        choices: ["Nayeon", "Jihyo", "Mina", "Tzuyu"],
+        solution: "Jihyo",
+        explanation: "Jihyo adalah leader TWICE sejak debut.",
+      ),
+      const Question(
+        problem: "TWICE debut di tahun berapa?",
+        choices: ["2014", "2015", "2016", "2017"],
+        solution: "2015",
+        explanation: "TWICE debut pada Oktober 2015 dengan lagu 'Like OOH-AHH'.",
+      ),
+      const Question(
+        problem: "Agensi yang menaungi TWICE adalah?",
+        choices: ["YG Entertainment", "SM Entertainment", "JYP Entertainment", "HYBE"],
+        solution: "JYP Entertainment",
+        explanation: "TWICE berada di bawah naungan JYP Entertainment.",
+      ),
+      const Question(
+        problem: "Member termuda (maknae) TWICE adalah?",
+        choices: ["Dahyun", "Tzuyu", "Chaeyoung", "Momo"],
+        solution: "Tzuyu",
+        explanation: "Tzuyu adalah maknae TWICE yang berasal dari Taiwan.",
+      ),
+      const Question(
+        problem: "Judul lagu debut TWICE adalah?",
+        choices: ["Cheer Up", "TT", "Like OOH-AHH", "Signal"],
+        solution: "Like OOH-AHH",
+        explanation: "‘Like OOH-AHH’ adalah lagu debut TWICE pada tahun 2015.",
+      ),
+      const Question(
+        problem: "Nama fandom resmi TWICE adalah?",
+        choices: ["Once", "Twink", "T-Unit", "Candy"],
+        solution: "Once",
+        explanation: "Fandom resmi TWICE disebut ‘ONCE’.",
+      ),
+      const Question(
+        problem: "Member TWICE asal Jepang ada berapa?",
+        choices: ["2", "3", "4", "5"],
+        solution: "3",
+        explanation: "Member asal Jepang adalah Momo, Sana, dan Mina.",
+      ),
+      const Question(
+        problem: "Lagu TWICE dengan ekspresi tangan ‘TT’ di koreografinya adalah?",
+        choices: ["Cheer Up", "TT", "Fancy", "Likey"],
+        solution: "TT",
+        explanation: "‘TT’ punya gerakan tangan membentuk huruf T yang ikonik.",
+      ),
+      const Question(
+        problem: "Member TWICE yang dikenal dengan line 'sha sha sha' di lagu 'Cheer Up' adalah?",
+        choices: ["Nayeon", "Momo", "Sana", "Jihyo"],
+        solution: "Sana",
+        explanation: "Line 'sha sha sha' yang ikonik dibawakan oleh Sana.",
+      ),
+      const Question(
+        problem: "Apa judul album debut TWICE?",
+        choices: ["The Story Begins", "Page Two", "Twicetagram", "Signal"],
+        solution: "The Story Begins",
+        explanation: "Album mini debut TWICE berjudul 'The Story Begins'.",
+      ),
+      const Question(
+        problem: "Lagu berbahasa Inggris pertama TWICE adalah?",
+        choices: ["The Feels", "Moonlight Sunrise", "I Can't Stop Me", "More & More"],
+        solution: "The Feels",
+        explanation: "'The Feels' adalah single berbahasa Inggris pertama dari TWICE.",
+      ),
+       const Question(
+        problem: "Reality show yang membentuk TWICE bernama?",
+        choices: ["Produce 101", "SIXTEEN", "Finding TWICE", "TWICE TV"],
+        solution: "SIXTEEN",
+        explanation: "TWICE dibentuk melalui program survival show JYP yang bernama SIXTEEN.",
+      ),
+      const Question(
+        problem: "Siapa main dancer di TWICE?",
+        choices: ["Sana", "Mina", "Momo", "Chaeyoung"],
+        solution: "Momo",
+        explanation: "Momo adalah main dancer TWICE yang dikenal dengan kemampuan menarinya yang luar biasa.",
+      ),
+      const Question(
+        problem: "Apa nama light stick resmi TWICE?",
+        choices: ["Candy Bong", "Twice Stick", "Once Bong", "Lighty"],
+        solution: "Candy Bong",
+        explanation: "Light stick resmi TWICE dinamakan 'Candy Bong' yang terinspirasi dari permen lolipop.",
       ),
     ],
   };

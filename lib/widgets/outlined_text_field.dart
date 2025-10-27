@@ -25,13 +25,27 @@ class OutlinedTextField extends StatelessWidget {
       maxLines: maxLines,
       minLines: minLines,
       decoration: InputDecoration(
-          hintText: hintText,
-          labelText: labelText,
-          border: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(
-                  Radius.circular(16)
-              )
-          )
+        hintText: hintText,
+        labelText: labelText,
+        border: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.outline.withValues(alpha: 0.5),
+            width: 1.5,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(16)),
+          borderSide: BorderSide(
+            color: Theme.of(context).colorScheme.primary,
+            width: 2.5,
+          ),
+        ),
+        filled: true,
+        fillColor: Theme.of(context).colorScheme.surfaceContainerLow,
       ),
       onChanged: (value) {
         onChanged?.call(value);

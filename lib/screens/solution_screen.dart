@@ -1,5 +1,7 @@
 import 'package:capek_mikir/config/app_theme.dart';
 import 'package:capek_mikir/provider/app_state_provider.dart';
+import 'package:capek_mikir/widgets/solution_option.dart';
+import 'package:capek_mikir/widgets/explanation_box.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -42,7 +44,6 @@ class _SolutionScreenState extends State<SolutionScreen> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Left sidebar - list of questions
         SizedBox(
           width: 300,
           child: Container(
@@ -73,7 +74,7 @@ class _SolutionScreenState extends State<SolutionScreen> {
                       borderRadius:
                       BorderRadius.circular(AppTheme.radiusMd),
                       border: Border.all(
-                        color: Theme.of(context).colorScheme.primary
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     child: Row(
@@ -108,7 +109,6 @@ class _SolutionScreenState extends State<SolutionScreen> {
             ),
           ),
         ),
-        // Right side - detail view
         Expanded(
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(AppTheme.spacingLg),
@@ -154,90 +154,13 @@ class _SolutionScreenState extends State<SolutionScreen> {
           final isUserAnswer = option == userAnswer;
           final isCorrect = option == correctAnswer;
 
-          Color? bgColor;
-          Color? borderColor;
-          IconData iconData;
-          Color iconColor;
-
-          if (isCorrect) {
-            bgColor = Colors.green.withValues(alpha: 0.1);
-            borderColor = Colors.green;
-            iconData = Icons.check_circle_rounded;
-            iconColor = Colors.green;
-          } else if (isUserAnswer && !isCorrect) {
-            bgColor = Colors.red.withValues(alpha: 0.1);
-            borderColor = Colors.red;
-            iconData = Icons.cancel_rounded;
-            iconColor = Colors.red;
-          } else {
-            iconData = Icons.circle_outlined;
-            iconColor = Colors.grey;
-          }
-
-          return Container(
-            margin: const EdgeInsets.symmetric(
-              vertical: AppTheme.spacingSm,
-            ),
-            decoration: BoxDecoration(
-              color: bgColor,
-              borderRadius: BorderRadius.circular(AppTheme.radiusMd),
-              border: Border.all(
-                color: borderColor ?? Colors.grey.shade300,
-                width: borderColor != null ? 1.5 : 1,
-              ),
-            ),
-            child: ListTile(
-              title: Text(
-                option,
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-              leading: Icon(
-                iconData,
-                color: iconColor,
-              ),
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: AppTheme.spacingMd,
-                vertical: AppTheme.spacingSm,
-              ),
-            ),
+          return SolutionOption(
+            option: option,
+            isCorrect: isCorrect,
+            isUserAnswer: isUserAnswer,
           );
         }),
-        const SizedBox(height: AppTheme.spacingMd),
-        if (question.explanation.trim().isNotEmpty)
-          Container(
-            margin: const EdgeInsets.only(top: AppTheme.spacingMd),
-            padding: const EdgeInsets.symmetric(
-              horizontal: AppTheme.spacingMd,
-              vertical: AppTheme.spacingMd,
-            ),
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.tertiary.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(AppTheme.radiusMd),
-              border: Border.all(
-                color: Theme.of(context).colorScheme.tertiary.withValues(alpha: 0.3),
-              ),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Icon(
-                  Icons.lightbulb_rounded,
-                  color: Theme.of(context).colorScheme.tertiary,
-                  size: 20,
-                ),
-                const SizedBox(width: AppTheme.spacingMd),
-                Expanded(
-                  child: Text(
-                    question.explanation,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurface,
-                      height: 1.4,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+        ExplanationBox(explanation: question.explanation),
       ],
     );
   }
@@ -280,90 +203,13 @@ class _SolutionScreenState extends State<SolutionScreen> {
               final isUserAnswer = option == userAnswer;
               final isCorrect = option == correctAnswer;
 
-              Color? bgColor;
-              Color? borderColor;
-              IconData iconData;
-              Color iconColor;
-
-              if (isCorrect) {
-                bgColor = Colors.green.withValues(alpha: 0.1);
-                borderColor = Colors.green;
-                iconData = Icons.check_circle_rounded;
-                iconColor = Colors.green;
-              } else if (isUserAnswer && !isCorrect) {
-                bgColor = Colors.red.withValues(alpha: 0.1);
-                borderColor = Colors.red;
-                iconData = Icons.cancel_rounded;
-                iconColor = Colors.red;
-              } else {
-                iconData = Icons.circle_outlined;
-                iconColor = Colors.grey;
-              }
-
-              return Container(
-                margin: const EdgeInsets.symmetric(
-                  vertical: AppTheme.spacingSm,
-                ),
-                decoration: BoxDecoration(
-                  color: bgColor,
-                  borderRadius: BorderRadius.circular(AppTheme.radiusMd),
-                  border: Border.all(
-                    color: borderColor ?? Colors.grey.shade300,
-                    width: borderColor != null ? 1.5 : 1,
-                  ),
-                ),
-                child: ListTile(
-                  title: Text(
-                    option,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
-                  leading: Icon(
-                    iconData,
-                    color: iconColor,
-                  ),
-                  contentPadding: const EdgeInsets.symmetric(
-                    horizontal: AppTheme.spacingMd,
-                    vertical: AppTheme.spacingSm,
-                  ),
-                ),
+              return SolutionOption(
+                option: option,
+                isCorrect: isCorrect,
+                isUserAnswer: isUserAnswer,
               );
             }),
-            const SizedBox(height: AppTheme.spacingMd),
-            if (question.explanation.trim().isNotEmpty)
-              Container(
-                margin: const EdgeInsets.only(top: AppTheme.spacingMd),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: AppTheme.spacingMd,
-                  vertical: AppTheme.spacingMd,
-                ),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.tertiary.withValues(alpha: 0.1),
-                  borderRadius: BorderRadius.circular(AppTheme.radiusMd),
-                  border: Border.all(
-                    color: Theme.of(context).colorScheme.tertiary.withValues(alpha: 0.3),
-                  ),
-                ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Icon(
-                      Icons.lightbulb_rounded,
-                      color: Theme.of(context).colorScheme.tertiary,
-                      size: 20,
-                    ),
-                    const SizedBox(width: AppTheme.spacingMd),
-                    Expanded(
-                      child: Text(
-                        question.explanation,
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: Theme.of(context).colorScheme.onSurface,
-                          height: 1.4,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+            ExplanationBox(explanation: question.explanation),
           ],
         ),
       ),
