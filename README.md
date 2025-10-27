@@ -25,27 +25,32 @@ Aplikasi kuis sederhana yang dibuat dengan Flutter.
 ### Screenshots
 
 #### 1. Home Screen
-![Home Screen](docs/home.png)
+<img src="docs/home.png" alt="Home Screen" height="450">
 
 #### 2. Quiz Screen (Responsive)
-|              Compact View              |              Expanded View               |
-|:--------------------------------------:|:----------------------------------------:|
-| ![Quiz Compact](docs/quiz_compact.png) | ![Quiz Expanded](docs/quiz_expanded.png) |
+|                    Compact View (Layar Sempit)                    |                     Expanded View (Layar Lebar)                     |
+|:-----------------------------------------------------------------:|:-------------------------------------------------------------------:|
+| <img src="docs/quiz_compact.png" alt="Quiz Compact" height="400"> | <img src="docs/quiz_expanded.png" alt="Quiz Expanded" height="400"> |
 
 #### 3. Score Screen
-![Score Screen](docs/score.png)
+<img src="docs/score.png" alt="Score Screen" height="450">
 
 #### 4. Solution Screen (Responsive)
-|                  Compact View                  |                  Expanded View                   |
-|:----------------------------------------------:|:------------------------------------------------:|
-| ![Solution Compact](docs/solution_compact.png) | ![Solution Expanded](docs/solution_expanded.png) |
+|                        Compact View (Layar Sempit)                        |                         Expanded View (Layar Lebar)                         |
+|:-------------------------------------------------------------------------:|:---------------------------------------------------------------------------:|
+| <img src="docs/solution_compact.png" alt="Solution Compact" height="400"> | <img src="docs/solution_expanded.png" alt="Solution Expanded" height="400"> |
 
 
 ### Video Demo
 
-[Lihat Video Demo Aplikasi](docs/demo.mp4)
+<p align="center">
+  <img src="docs/demo.gif" alt="Video Demo Aplikasi" width="600">
+</p>
+<p align="center">
+  <i>(Pratinjau di atas adalah file GIF. Untuk video lengkap dengan suara, klik link di bawah)</i>
+</p>
 
-*(Catatan: Klik link di atas untuk melihat video demo. Pastikan file `demo.mp4` ada di dalam folder `docs`)*
+[**--> Lihat Video Demo Lengkap (MP4) <--**](docs/demo.mp4)
 
 
 ## Link Mockup/Prototype
