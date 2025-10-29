@@ -71,7 +71,7 @@ class ScoreScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                         vertical: AppTheme.spacingSm,
                       ),
-                      child: Text("Kembali ke Home"),
+                      child: Text("Kembali"),
                     ),
                   ),
                 ),

@@ -99,7 +99,7 @@ class _QuizContent extends StatelessWidget {
                                             ? null
                                             : quiz.previousQuestion,
                                         icon: const Icon(Icons.arrow_back),
-                                        label: const Text("Previous"),
+                                        label: const Text("Kembali"),
                                       ),
                                     ),
                                     const SizedBox(width: AppTheme.spacingMd),
@@ -113,7 +113,7 @@ class _QuizContent extends StatelessWidget {
                                         }
                                             : quiz.nextQuestion,
                                         label: Text(
-                                            quiz.isLast ? "Selesai" : "Next"),
+                                            quiz.isLast ? "Selesai" : "Lanjut"),
                                         icon: const Icon(Icons.arrow_forward),
                                       ),
                                     ),
