@@ -28,14 +28,14 @@ class MyApp extends StatelessWidget {
         child: MaterialApp.router(
           title: "Capek Mikir",
           theme: ThemeData(
-              fontFamily: "Comic",
+              fontFamily: "Delius",
               colorScheme: ColorScheme.fromSeed(
                   seedColor: Color(0xFF01197E),
                   brightness: Brightness.light
               )
           ),
           darkTheme: ThemeData(
-              fontFamily: "Comic",
+              fontFamily: "Delius",
               colorScheme: ColorScheme.fromSeed(
                   seedColor: Color(0xFF01197E),
                   brightness: Brightness.dark
