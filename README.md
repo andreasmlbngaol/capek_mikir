@@ -44,7 +44,7 @@ Aplikasi kuis sederhana yang dibuat dengan Flutter.
 ### Video Demo
 
 <p align="center">
-  <img src="docs/demo.gif" alt="Video Demo Aplikasi" width="600">
+  <img src="docs/demo.gif" alt="Video Demo Aplikasi" width="300">
 </p>
 <p align="center">
   <i>(Pratinjau di atas adalah file GIF. Untuk video lengkap dengan suara, klik link di bawah)</i>
